@@ -1,5 +1,278 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {}
+    "鸢报": {
+        "recognition": "OCR",
+        "expected": "鸢报",
+        "action": "Click",
+        "next": [
+            "Sub_他的传闻",
+            "Sub_待办公务"
+        ]
+    },
+    "Sub_他的传闻": {
+        "pre_wait_freezes": 1000,
+        "recognition": "OCR",
+        "expected": "他的传闻",
+        "roi": [
+            306,
+            747,
+            259,
+            389
+        ],
+        "timeout": 4000,
+        "timeout_next": [
+            "返回上一界面"
+        ],
+        "action": "Click",
+        "times_limit": 1,
+        "runout_next": [
+            "返回上一界面"
+        ],
+        "next": [
+            "他的传闻_气力值判断"
+        ]
+    },
+    "他的传闻_气力值判断": {
+        "recognition": "TemplateMatch",
+        "template": "yb_tdcw_qlz.png",
+        "roi": [
+            456,
+            0,
+            264,
+            164
+        ],
+        "timeout": 4000,
+        "timeout_next": [
+            "返回上一界面"
+        ],
+        "next": [
+            "他的传闻_开始调查"
+        ]
+    },
+    "他的传闻_开始调查": {
+        "recognition": "TemplateMatch",
+        "template": "yb_tdcw_dc.png",
+        "roi": [
+            461,
+            1024,
+            259,
+            249
+        ],
+        "timeout": 4000,
+        "action": "Click",
+        "next": [
+            "他的传闻_气力值回复",
+            "他的传闻_点击任意位置",
+            "他的传闻_出口",
+            "他的传闻_对话",
+            "他的传闻_前进",
+            "他的传闻_信物"
+        ]
+    },
+    "他的传闻_气力值回复": {
+        "pre_wait_freezes": 500,
+        "recognition": "OCR",
+        "expected": "气力值回复",
+        "next": [
+            "返回首页"
+        ]
+    },
+    "他的传闻_点击任意位置": {
+        "is_sub": true,
+        "pre_wait_freezes": 1000,
+        "recognition": "OCR",
+        "expected": "点击任意位置开始",
+        "times_limit": 1,
+        "action": "Click"
+    },
+    "他的传闻_出口": {
+        "is_sub": true,
+        "pre_wait_freezes": 500,
+        "recognition": "OCR",
+        "expected": "出口",
+        "roi": [
+            0,
+            466,
+            719,
+            598
+        ],
+        "timeout": 3000,
+        "action": "Click",
+        "target_offset": [
+            0,
+            50,
+            0,
+            0
+        ],
+        "next": [
+            "他的传闻_获得奖励"
+        ]
+    },
+    "他的传闻_获得奖励": {
+        "recognition": "OCR",
+        "expected": "点击空白处关闭",
+        "action": "Click"
+    },
+    "他的传闻_前进": {
+        "is_sub": true,
+        "pre_wait_freezes": 1000,
+        "recognition": "OCR",
+        "expected": "前进",
+        "roi": [
+            0,
+            466,
+            719,
+            598
+        ],
+        "timeout": 3000,
+        "action": "Click",
+        "target_offset": [
+            0,
+            50,
+            0,
+            0
+        ]
+    },
+    "他的传闻_信物": {
+        "is_sub": true,
+        "pre_wait_freezes": 1000,
+        "recognition": "OCR",
+        "expected": [
+            "短刀",
+            "酒盏",
+            "竹叶",
+            "绣衣楼标记",
+            "鸢羽"
+        ],
+        "roi": [
+            0,
+            466,
+            719,
+            598
+        ],
+        "timeout": 5000,
+        "action": "Click",
+        "target_offset": [
+            0,
+            50,
+            0,
+            0
+        ]
+    },
+    "他的传闻_对话": {
+        "is_sub": true,
+        "pre_wait_freezes": 1000,
+        "recognition": "OCR",
+        "expected": [
+            "孙策",
+            "刘辩",
+            "袁基",
+            "傅融",
+            "左慈"
+        ],
+        "roi": [
+            0,
+            466,
+            719,
+            598
+        ],
+        "timeout": 5000,
+        "action": "Click",
+        "target_offset": [
+            0,
+            50,
+            0,
+            0
+        ],
+        "next": [
+            "selection_跳过",
+            "selection_对话框"
+        ]
+    },
+    "selection_跳过": {
+        "pre_wait_freezes": 500,
+        "recognition": "OCR",
+        "expected": "跳过",
+        "roi": [
+            530,
+            85,
+            190,
+            150
+        ],
+        "timeout": 5000,
+        "action": "Click"
+    },
+    "selection_对话框": {
+        "pre_wait_freezes": 500,
+        "action": "DoNothing"
+    },
+    "Sub_待办公务": {
+        "timeout": 3000,
+        "timeout_next": [
+            "返回上一界面"
+        ],
+        "recognition": "OCR",
+        "expected": "待办公务",
+        "action": "Click",
+        "next": [
+            "Sub_请求出战"
+        ]
+    },
+    "Sub_请求出战": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "template": "yb_dbgw_jj.png",
+        "timeout": 3000,
+        "timeout_next": [
+            "停止任务"
+        ],
+        "action": "Click",
+        "target_offset": [
+            0,
+            70,
+            0,
+            0
+        ],
+        "next": [
+            "请求出战_开始战斗"
+        ]
+    },
+    "请求出战_开始战斗": {
+        "recognition": "OCR",
+        "expected": "开始战斗",
+        "action": "Click",
+        "post_wait_freezes": 20000,
+        "next": [
+            "请求出战_战斗结算"
+        ]
+    },
+    "请求出战_战斗结算": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "action": "Click",
+        "next": [
+            "请求出战_获得奖励"
+        ]
+    },
+    "请求出战_获得奖励": {
+        "recognition": "OCR",
+        "expected": "获得奖励",
+        "action": "Click"
+    },
+    "返回上一界面": {
+        "action": "Key",
+        "key": 4
+    },
+    "返回首页": {
+        "recognition": "TemplateMatch",
+        "template": "return_home.png",
+        "roi": [
+            68,
+            0,
+            169,
+            183
+        ]
+    },
+    "停止任务": {
+        "action": "StopTask"
+    }
 }
