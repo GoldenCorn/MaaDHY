@@ -1,0 +1,213 @@
+{
+    "Task_begin": {
+        "next": [
+            "Task_main_624"
+        ]
+    },
+    "Task_main_624": {
+        "recognition": "OCR",
+        "expected": [
+            "挟天子-行动贰"
+        ],
+        "action": "Click",
+        "next": [
+            "Enter_level",
+            "Canvas_click"
+        ],
+        "timeout": 3000,
+        "timeout_next": [
+            "End_task"
+        ]
+    },
+    "Enter_level": {
+        "recognition": "OCR",
+        "expected": [
+            "进入关卡"
+        ],
+        "timeout": 2000,
+        "timeout_next": [
+            "Canvas_click"
+        ],
+        "action": "Click",
+        "next": [
+            "Check_energy",
+            "Canvas_click"
+        ]
+    },
+    "Check_energy": {
+        "recognition": "OCR",
+        "expected": [
+            "体力回复"
+        ],
+        "timeout": 2000,
+        "timeout_next": [
+            "Canvas_click"
+        ],
+        "action": "StopTask"
+    },
+    "Canvas_click": {
+        "pre_wait_freezes": 500,
+        "action": "Click",
+        "next": [
+            "Start_level"
+        ]
+    },
+    "Start_level": {
+        "pre_wait_freezes": 200,
+        "next": [
+            "Selection_exit",
+            "Selection_fight",
+            "Selection_bonus",
+            "Selection_proceed"
+        ]
+    },
+    "Selection_exit": {
+        "is_sub": true,
+        "pre_wait_freezes": 800,
+        "recognition": "OCR",
+        "expected": [
+            "郊外"
+        ],
+        "roi": [
+            0,
+            466,
+            719,
+            598
+        ],
+        "timeout": 1000,
+        "action": "Click",
+        "target_offset": [
+            0,
+            80,
+            0,
+            0
+        ],
+        "next": [
+            "End_level"
+        ]
+    },
+    "Selection_fight": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": [
+            "流寇"
+        ],
+        "roi": [
+            0,
+            466,
+            719,
+            598
+        ],
+        "timeout": 1000,
+        "action": "Click",
+        "target_offset": [
+            0,
+            80,
+            0,
+            0
+        ],
+        "next": [
+            "Start_fight"
+        ]
+    },
+    "Selection_bonus": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": [
+            "^小铜"
+        ],
+        "roi": [
+            0,
+            466,
+            719,
+            598
+        ],
+        "timeout": 2000,
+        "action": "Click",
+        "target_offset": [
+            0,
+            80,
+            0,
+            0
+        ],
+        "next": [
+            "Double_click_1"
+        ]
+    },
+    "Double_click_1": {
+        "pre_wait_freezes": 100,
+        "action": "Click",
+        "target": [
+            0,
+            1050,
+            719,
+            598
+        ]
+    },
+    "Start_fight": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "action": "Click",
+        "timeout": 60000,
+        "next": [
+            "Check_results"
+        ]
+    },
+    "Check_results": {
+        "timeout": 5000,
+        "recognition": "OCR",
+        "expected": [
+            "获得奖励"
+        ],
+        "timeout_next": [
+            "Check_results"
+        ],
+        "next": [
+            "Battle_results"
+        ]
+    },
+    "Battle_results": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "action": "Click"
+    },
+    "Selection_proceed": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": [
+            "前进"
+        ],
+        "roi": [
+            0,
+            466,
+            719,
+            598
+        ],
+        "timeout": 2000,
+        "action": "Click",
+        "target_offset": [
+            0,
+            80,
+            0,
+            0
+        ]
+    },
+    "End_level": {
+        "pre_wait_freezes": 500,
+        "recognition": "OCR",
+        "expected": [
+            "共计获得"
+        ],
+        "action": "Click",
+        "next": [
+            "Task_begin"
+        ]
+    },
+    "End_task": {
+        "action": "StopTask"
+    }
+}
