@@ -1,0 +1,194 @@
+{
+    "Task_qingbao": {
+        "next": [
+            "Canvas_click_qb"
+        ]
+    },
+    "Canvas_click_qb": {
+        "pre_wait_freezes": 200,
+        "action": "Click",
+        "next": [
+            "Start_qingbao"
+        ]
+    },
+    "Start_qingbao": {
+        "pre_wait_freezes": 200,
+        "timeout": 2000,
+        "next": [
+            "Qingbao_end",
+            "Start_fight_qb",
+            "Selection_dialog_qb",
+            "Selection_fight_qb",
+            "Selection_bonus_qb"
+        ]
+    },
+    "Qingbao_end": {
+        "recognition": "OCR",
+        "expected": [
+            "获得奖励"
+        ],
+        "action": "StopTask"
+    },
+    "Start_fight_qb": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "action": "Click",
+        "timeout": 60000,
+        "next": [
+            "Check_results_qb"
+        ]
+    },
+    "Check_results_qb": {
+        "timeout": 5000,
+        "recognition": "OCR",
+        "expected": [
+            "获得奖励"
+        ],
+        "timeout_next": [
+            "Check_results_qb"
+        ],
+        "next": [
+            "Battle_results_qb"
+        ]
+    },
+    "Battle_results_qb": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "action": "Click"
+    },
+    "Selection_dialog_qb": {
+        "is_sub": true,
+        "recognition": "ColorMatch",
+        "template": [
+            "qingbao_dialog_1.png"
+        ],
+        "lower": [
+            [
+                213,
+                220,
+                223
+            ],
+            [
+                53,
+                113,
+                131
+            ],
+            [
+                91,
+                145,
+                188
+            ]
+        ],
+        "upper": [
+            [
+                250,
+                251,
+                252
+            ],
+            [
+                109,
+                139,
+                167
+            ],
+            [
+                138,
+                181,
+                200
+            ]
+        ],
+        "connected": true,
+        "roi": [
+            281,
+            525,
+            158,
+            47
+        ],
+        "action": "Click",
+        "target_offset": [
+            25,
+            100,
+            0,
+            0
+        ]
+    },
+    "Selection_fight_qb": {
+        "pre_wait_freezes": 200,
+        "is_sub": true,
+        "recognition": "ColorMatch",
+        "template": "qingbao_fight_1.png",
+        "roi": [
+            281,
+            525,
+            159,
+            48
+        ],
+        "lower": [
+            [
+                112,
+                61,
+                60
+            ],
+            [
+                225,
+                209,
+                207
+            ],
+            [
+                203,
+                83,
+                89
+            ]
+        ],
+        "upper": [
+            [
+                168,
+                99,
+                98
+            ],
+            [
+                249,
+                244,
+                244
+            ],
+            [
+                226,
+                116,
+                109
+            ]
+        ],
+        "connected": false,
+        "action": "Click",
+        "target_offset": [
+            25,
+            100,
+            0,
+            0
+        ]
+    },
+    "Selection_bonus_qb": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": [
+            "^小铜"
+        ],
+        "roi": [
+            0,
+            466,
+            719,
+            598
+        ],
+        "timeout": 2000,
+        "action": "Click",
+        "target_offset": [
+            0,
+            80,
+            0,
+            0
+        ]
+    }
+}

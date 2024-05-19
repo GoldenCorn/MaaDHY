@@ -1,9 +1,4 @@
 {
-    "Task_begin": {
-        "next": [
-            "Task_main_624"
-        ]
-    },
     "Task_main_624": {
         "recognition": "OCR",
         "expected": [
@@ -204,7 +199,7 @@
         ],
         "action": "Click",
         "next": [
-            "Task_begin"
+            "Task_main_624"
         ]
     },
     "End_task": {
